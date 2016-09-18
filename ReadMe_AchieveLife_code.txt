@@ -1,0 +1,1 @@
+I couldn't post data to the server, Because Android studio doesn't allow me to import org.apache.http. Therefore, it runs locally. when you click "intelligence" icon, it shows" you are in intelligence part". same as "fitness" icon,I will go google map. 

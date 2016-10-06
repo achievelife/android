@@ -33,12 +33,5 @@ public class Main_login extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
     }
 }

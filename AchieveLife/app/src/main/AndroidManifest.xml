@@ -38,6 +38,8 @@
         <activity
             android:name=".Fitness"
             android:label="@string/title_activity_fitness"></activity>
+
+        <activity android:name=".activity_log" />
     </application>
 
 </manifest>

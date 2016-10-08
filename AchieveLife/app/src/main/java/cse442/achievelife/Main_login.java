@@ -28,7 +28,7 @@ public class Main_login extends AppCompatActivity {
 
         fitness_Button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Fitness.class);
+                Intent intent = new Intent(getApplicationContext(), FitnessMap.class);
                 startActivity(intent);
             }
         });

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cse442.achievelife">
+    package="edu.ywang77buffalo.achievelife">
 
     <application
         android:allowBackup="true"
@@ -8,16 +8,20 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".AchieveLifeMain"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".IntelligenceActivity" />
+        <activity android:name=".FitnessActivity" />
+        <activity android:name=".FinanceActivity" />
+        <activity android:name=".SocialActivity" />
+        <activity android:name=".StudyingActivity" />
+        <activity android:name=".AttendenceActivity" />
+        <activity android:name=".GymActivity"></activity>
     </application>
 
 </manifest>

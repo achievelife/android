@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.ywang77buffalo.achievelife.FitnessActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="FITNESS"
+        android:id="@+id/textView13"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="LVL1"
+        android:id="@+id/textView14"
+        android:layout_alignBottom="@+id/textView13"
+        android:layout_toEndOf="@+id/textView13" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Activity Available :"
+        android:id="@+id/textView15"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="119dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GYMING"
+        android:id="@+id/button9"
+        android:layout_below="@+id/textView15"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView14" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unlock"
+        android:id="@+id/checkBox3"
+        android:layout_alignTop="@+id/button9"
+        android:layout_toEndOf="@+id/button9"
+        android:layout_alignBottom="@+id/button9"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Current Experience :"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/button9"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="85dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar2"
+        android:layout_below="@+id/textView16"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="70dp"
+        android:layout_alignEnd="@+id/button9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tip for the day Fitness : Move your body everyday of the week and remember to think movement not just exercise, be active everyday"
+        android:id="@+id/textView17"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="37dp" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock5"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView17" />
+</RelativeLayout>

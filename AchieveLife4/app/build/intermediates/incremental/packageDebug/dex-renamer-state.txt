@@ -1,7 +1,0 @@
-#Thu Oct 06 15:17:24 EDT 2016
-base.0=/Users/Sflower/Desktop/CSE442/AchieveLife4/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_11f6e723338277f40e3b0aec61fb2ec38c9d9dc0
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/Sflower/Desktop/CSE442/AchieveLife4/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fd424baf218e3cfdf6b5e639ec4055d59d9de904/classes.dex
-base.1=/Users/Sflower/Desktop/CSE442/AchieveLife4/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_fd424baf218e3cfdf6b5e639ec4055d59d9de904
-file.0=/Users/Sflower/Desktop/CSE442/AchieveLife4/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_11f6e723338277f40e3b0aec61fb2ec38c9d9dc0/classes.dex

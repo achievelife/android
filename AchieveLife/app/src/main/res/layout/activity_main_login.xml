@@ -41,6 +41,13 @@
         <Button
             android:layout_width="fill_parent"
             android:layout_height="120dp"
+            android:text="@string/action_activity_log"
+            android:id="@+id/activity_logButton"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="120dp"
             android:text="@string/action_settings"
             android:id="@+id/settingsButton"
             android:layout_gravity="center_horizontal" />

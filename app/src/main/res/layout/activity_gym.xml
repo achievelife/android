@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.ywang77buffalo.achievelife.GymActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="GYMING"
+        android:id="@+id/textView18"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description for the Activity :"
+        android:id="@+id/textView19"
+        android:layout_below="@+id/textView18"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="77dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Gyming regularly, adds to muscle mass and strength, by subjecting them to closely controlled movement and activity, mostly targeting one muscle group at a time. It also goes on to add to muscle endurance. Muscle size increases too, due to Hypertrophic Adaptation (which is basically an increase in the size of the cell due to change in its environment, which here, happens due to movement of the said muscle)."
+        android:id="@+id/textView20"
+        android:layout_below="@+id/textView19"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock6"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:id="@+id/button10"
+        android:layout_above="@+id/textClock6"
+        android:layout_alignEnd="@+id/textClock6"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

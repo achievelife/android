@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.ywang77buffalo.achievelife.ScholarActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SHOLARSHIP "
+        android:id="@+id/textView26"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Description for the Activity :"
+        android:id="@+id/textView27"
+        android:layout_below="@+id/textView26"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="69dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="An amount of money that is given by a school, an organization, etc., to a student to help pay for the student's education"
+        android:id="@+id/textView28"
+        android:layout_below="@+id/textView27"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="67dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START"
+        android:id="@+id/button12"
+        android:layout_below="@+id/textView28"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="87dp"
+        android:layout_alignEnd="@+id/textView28" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

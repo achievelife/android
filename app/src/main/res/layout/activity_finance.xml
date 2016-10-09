@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.ywang77buffalo.achievelife.FinanceActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="FINANCE"
+        android:id="@+id/textView21"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="LVL1"
+        android:id="@+id/textView22"
+        android:layout_alignBottom="@+id/textView21"
+        android:layout_toEndOf="@+id/textView21" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Activity Available :"
+        android:id="@+id/textView23"
+        android:layout_marginTop="72dp"
+        android:layout_below="@+id/textView21"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scholarship"
+        android:id="@+id/button11"
+        android:layout_below="@+id/textView23"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="54dp"
+        android:layout_toStartOf="@+id/textView22"
+        android:layout_alignEnd="@+id/textView22" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unlock"
+        android:id="@+id/checkBox4"
+        android:layout_alignTop="@+id/button11"
+        android:layout_toEndOf="@+id/button11"
+        android:layout_alignBottom="@+id/button11"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Current Experience :"
+        android:id="@+id/textView24"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/button11"
+        android:layout_alignParentStart="true" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar3"
+        android:layout_below="@+id/textView24"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="34dp"
+        android:layout_toStartOf="@+id/checkBox4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Tip for the Day Finance : Budget About 30% of Your Income for Lifestyle Spending"
+        android:id="@+id/textView25"
+        android:layout_below="@+id/progressBar3"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock7"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

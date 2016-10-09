@@ -18,6 +18,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".IntelligenceActivity" />
+        <activity android:name=".FitnessActivity" />
+        <activity android:name=".FinanceActivity" />
+        <activity android:name=".SocialActivity" />
+        <activity android:name=".PartyActivity" />
+        <activity android:name=".StudyingActivity" />
+        <activity android:name=".AttendenceActivity" />
+        <activity android:name=".ScholarActivity" />
+        <activity android:name=".GymActivity"></activity>
     </application>
 
 </manifest>

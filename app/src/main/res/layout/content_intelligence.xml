@@ -9,43 +9,51 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.admin.achievelifesprint2.AchieveLifeMain"
-    tools:showIn="@layout/activity_achieve_life_main">
+    tools:context="com.example.admin.achievelifesprint2.Intelligence"
+    tools:showIn="@layout/activity_intelligence"
+    android:background="@drawable/achieve"
+    >
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:id="@+id/set_button"
-        android:layout_above="@+id/intel_button"
-        android:layout_alignParentEnd="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Intelligence Points: "
+        android:id="@+id/textView5"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Number of Achievements: "
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Intelligence"
-        android:id="@+id/intel_button"
-        android:layout_alignParentBottom="true"
+        android:text="My Achievements"
+        android:id="@+id/achievements"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Minigames"
+        android:id="@+id/button5"
+        android:layout_below="@+id/achievements"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:layout_below="@+id/button5"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="42dp"
-        android:layout_alignParentEnd="true" />
+        android:text="Shop" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fitness"
-        android:id="@+id/fitness_button"
-        android:layout_above="@+id/set_button"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leaderboard"
-        android:id="@+id/button4"
-        android:layout_above="@+id/fitness_button"
-        android:layout_alignEnd="@+id/fitness_button"
-        android:layout_alignParentStart="true" />
 </RelativeLayout>

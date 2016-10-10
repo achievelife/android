@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.example.admin.achievelifesprint2.AchieveLifeMain"
+    tools:context="com.example.admin.achievelifesprint2.Settings"
     android:background="@drawable/achieve"
     >
 
@@ -23,7 +23,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_achieve_life_main" />
+    <include layout="@layout/content_settings" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

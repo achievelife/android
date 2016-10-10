@@ -1,4 +1,4 @@
-package com.example.admin.achievelifesprint2;
+package com.example.english.basicgpssystem;
 
 import org.junit.Test;
 

@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.location.LocationListener;
+import android.app.Service;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -24,7 +26,6 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.identity.intents.Address;
-import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -36,12 +37,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.List;
+
 
 
 public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
-    private GoogleMap googleMap;
+    private GoogleMap _googleMap;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -49,8 +50,8 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
      */
     private GoogleApiClient myGoogleApiClient;
     private LocationRequest myLocationRequest;
-    private Marker marker;
-
+    private Marker _marker;
+    private Location _location;
     private Context context;
     private boolean isGpsEnabled;
     private boolean isNetworkEnabled;
@@ -60,9 +61,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     private static final long MIN_DISTANCE_CHANG_FOR_UPDATE = 10;
     private static final long MINI_TIME_BW_UPDATE = 1000 * 60 * 1;
 
-    protected LocationManager locationManager;
-
-
+    protected LocationManager _locationManager;
 
 
     /**
@@ -109,12 +108,12 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
      */
     @Override
     public void onMapReady(GoogleMap map) {
-        googleMap = map;
-        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        _googleMap = map;
+        _googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
 
-        initMarkerLocationZoom(43.002961, -78.7868477, 18);
-
+        //bookstore to be initial the location mark
+        initMarkerLocationZoom(43.0008093, -78.7911584, 18);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -128,36 +127,41 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
                 return;
             }
         }
-        googleMap.setMyLocationEnabled(true);
-        //getLocation();
+        _googleMap.setMyLocationEnabled(true);
+
+
+
+
+
+        /*
+        getLocation();
+
+        if(canGetLocation){
+            Toast.makeText(getApplicationContext(),"your location is: " + _latitude
+            + ", " +_longtitude,Toast.LENGTH_LONG).show();
+
+
+        }
+
+*/
+
 
         /************************************/
         // below are all testing distance
         // hard code, no
-        Location cur = new Location("");
-        cur.setLatitude(43.0032);
-        cur.setLongitude(-78.7896);             /**change code here, enable to get current latitude and longtitude, not hard code**********************************/
+        Location currentLocation = new Location("");
+        currentLocation.setLatitude(43.0027488);
+        currentLocation.setLongitude(-78.7868801);             /**change code here, enable to get current latitude and longtitude, not hard code**********************************/
 
-        Location Alumni_Arena_Loc = new Location("Alumni Arena");
-        Alumni_Arena_Loc.setLatitude(43.000582);
-        Alumni_Arena_Loc.setLongitude(-78.781136);
-
-        float distance = cur.distanceTo(Alumni_Arena_Loc);  /** get the distance*******************************/
-        //System.out.print(distance);
-
-
-
-        LatLng alumni_arena = new LatLng(43.000582, -78.781136);
-        googleMap.addMarker(new MarkerOptions().position(alumni_arena).title("Alumni Arena").snippet("The distance is: " + Float.toString(distance) + " meters"));
-        // done testing
         /************************************************************/
 
-       // setMarkers("Alumni Arena", 43.000582, -78.781136);
-        setMarkers("UB Center for the Arts", 43.001205, -78.783030);
-        setMarkers("Lockwood Memorial Library", 43.000407, -78.785796);
-        setMarkers("Student Union", 43.001256, -78.786241);
-        setMarkers("Clemens Hall", 43.000523, -78.784979);
-        setMarkers("Charles B. Sears Law Library", 43.000412, -78.787968);
+        setMarkers(currentLocation,"Alumni Arena", 43.000582, -78.781136);
+        setMarkers(currentLocation, "UB Center for the Arts", 43.001205, -78.783030);
+        setMarkers(currentLocation,"Lockwood Memorial Library", 43.000407, -78.785796);
+        setMarkers(currentLocation, "Student Union", 43.001256, -78.786241);
+        setMarkers(currentLocation, "Clemens Hall", 43.000523, -78.784979);
+        setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
+        setMarkers(currentLocation, "UB Bookstore", 43.002961, -78.7868477);
 
 
 
@@ -169,24 +173,53 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 */
 
     }
-/*
+
+    /*
     public Location getLocation() {
         try {
-            locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-            isGpsEnabled = locationManager.isProviderEnabled(locationManager.GPS_PROVIDER);
-            isNetworkEnabled = locationManager.isProviderEnabled(locationManager.NETWORK_PROVIDER);
+            _locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+            isGpsEnabled = _locationManager.isProviderEnabled(_locationManager.GPS_PROVIDER);
+            isNetworkEnabled = _locationManager.isProviderEnabled(_locationManager.NETWORK_PROVIDER);
 
-            if(!isGpsEnabled && isNetworkEnabled){
+            if (!isGpsEnabled && isNetworkEnabled) {
 
-            }else{
-                isGpsEnabled = true;
-                if(isNetworkEnabled){
-                    locationManager.requestLocationUpdates(locationManager.NETWORK_PROVIDER,
-                            MINI_TIME_BW_UPDATE, MIN_DISTANCE_CHANG_FOR_UPDATE, this);
-                    
+            } else {
+                this.canGetLocation = true;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        // TODO: Consider calling
+                        //    ActivityCompat#requestPermissions
+                        // here to request the missing permissions, and then overriding
+                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                        //                                          int[] grantResults)
+                        // to handle the case where the user grants the permission. See the documentation
+                        // for ActivityCompat#requestPermissions for more details.
+                        return _location;
+                    }
                 }
+                _locationManager.requestLocationUpdates(_locationManager.NETWORK_PROVIDER,
+                            MINI_TIME_BW_UPDATE,
+                            MIN_DISTANCE_CHANG_FOR_UPDATE,
+                            (android.location.LocationListener) this);
+                    
 
-            }
+                if(_locationManager != null){
+                    _location = _locationManager.getLastKnownLocation(_locationManager.NETWORK_PROVIDER);
+                    if(_location != null){
+                        _latitude = _location.getLatitude();
+                        _longtitude = _location.getLongitude();
+                    }
+                }
+                }
+                if(isGpsEnabled){
+                    _locationManager.requestLocationUpdates(_locationManager.GPS_PROVIDER,
+                            MINI_TIME_BW_UPDATE,
+                            MIN_DISTANCE_CHANG_FOR_UPDATE,
+                            (android.location.LocationListener)this);
+
+
+
+                }
 
 
 
@@ -194,9 +227,33 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
         }
 
-
+        return _location;
     }
-*/
+    */
+
+    public double getLatitude(){
+        if(_location != null){
+            _latitude = _location.getLatitude();
+        }
+        return _latitude;
+    }
+
+    public double getLongtitude(){
+        if(_location!= null){
+            _longtitude = _location.getLongitude();
+        }
+
+        return _longtitude;
+    }
+
+    public boolean canGetLocation(){
+        return this.canGetLocation;
+    }
+
+
+
+
+
 
     public boolean googleServicesAvailable() {
         // get the instance of the google api availability
@@ -227,11 +284,12 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
     public void initMarkerLocationZoom(double latitude, double longitude, float zoom) {
         // Add a marker in UB bookstore and move the camera
-        LatLng UBBookStore = new LatLng(latitude, longitude);
-        googleMap.addMarker(new MarkerOptions().position(UBBookStore).title("UB Bookstore"));
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(UBBookStore, zoom);
+        LatLng UB = new LatLng(latitude, longitude);
+        _googleMap.addMarker(new MarkerOptions().position(UB).title("UB Bookstore"));
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(UB, zoom);
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(UBBookStore));
-        googleMap.moveCamera(cameraUpdate);
+
+        _googleMap.moveCamera(cameraUpdate);
 
     }
 
@@ -240,13 +298,20 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         // googleMap.addMarker(new MarkerOptions().position(UBBookStore).title("UB Bookstore"));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, zoom);
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(UBBookStore));
-        googleMap.animateCamera(cameraUpdate);
+        _googleMap.animateCamera(cameraUpdate);
     }
 
-    public void setMarkers(String locality, double latitude, double longitude) {
-        MarkerOptions options = new MarkerOptions().title(locality)
-                .position(new LatLng(latitude, longitude));
-        marker = googleMap.addMarker(options);
+    public void setMarkers(Location currentLocation,String locality, double latitude, double longitude) {
+
+        Location destination = new Location(locality);
+        destination.setLatitude(latitude);
+        destination.setLongitude(longitude);
+
+        float distance = currentLocation.distanceTo(destination);  /** get the distance*******************************/
+
+        _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
+                .position(new LatLng(latitude, longitude))
+                .snippet("The distance is: " + Float.toString(distance) + " meters"));
 
     }
 
@@ -269,7 +334,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
                 return;
             }
         }
-        LocationServices.FusedLocationApi.requestLocationUpdates(myGoogleApiClient, myLocationRequest, this); // this is who is listening the location
+        LocationServices.FusedLocationApi.requestLocationUpdates(myGoogleApiClient, myLocationRequest, (com.google.android.gms.location.LocationListener)this); // this is who is listening the location
 
 
     }
@@ -292,9 +357,24 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         } else {
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
-            googleMap.animateCamera(cameraUpdate);
+            _googleMap.animateCamera(cameraUpdate);
 
         }
+
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
 
     }
 
@@ -334,27 +414,6 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         client.disconnect();
     }
 
-
-    //only for learning below, we might use it for sprint3
-    /*
-    public void getGeoLocation1(View view) throws IOException{
-
-        EditText et = (EditText) findViewById(R.id.editText);
-        String location = et.getText().toString();
-
-        Geocoder gc = new Geocoder(this);
-        List<Address> list = gc.getFromLocationName(location,1);
-        Address address = list.get(0);
-        String locality = address.getLocality();
-
-        Toast.makeText(this, locality, Toast.LENGTH_LONG).show();
-
-        double latitude = address.getLatitude();
-        double longitude = address.getLongitude();
-        initMarkerLocationZoom(latitude, longitude, 18);
-
-    }
-*/
-
-
 }
+
+

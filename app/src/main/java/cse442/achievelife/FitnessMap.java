@@ -5,11 +5,9 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.location.LocationListener;
-import android.app.Service;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -25,7 +23,6 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.identity.intents.Address;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
@@ -33,6 +30,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -48,14 +46,14 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    private GoogleApiClient myGoogleApiClient;
-    private LocationRequest myLocationRequest;
+    private GoogleApiClient _myGoogleApiClient;
+    private LocationRequest _myLocationRequest;
     private Marker _marker;
     private Location _location;
-    private Context context;
-    private boolean isGpsEnabled;
-    private boolean isNetworkEnabled;
-    private boolean canGetLocation;
+    private Context _context;
+    private boolean _isGpsEnabled;
+    private boolean _isNetworkEnabled;
+    private boolean _canGetLocation;
     private double _latitude;
     private double _longtitude;
     private static final long MIN_DISTANCE_CHANG_FOR_UPDATE = 10;
@@ -71,9 +69,9 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     private GoogleApiClient client;
 
     public FitnessMap() {
-        isGpsEnabled = false;
-        canGetLocation = false;
-        isNetworkEnabled = false;
+        _isGpsEnabled = false;
+        _canGetLocation = false;
+        _isNetworkEnabled = false;
     }
 
     @Override
@@ -150,18 +148,17 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         // below are all testing distance
         // hard code, no
         Location currentLocation = new Location("");
-        currentLocation.setLatitude(43.0027488);
-        currentLocation.setLongitude(-78.7868801);             /**change code here, enable to get current latitude and longtitude, not hard code**********************************/
+        currentLocation.setLatitude(43.000774);
+        currentLocation.setLongitude(-78.7911897);             /**change code here, enable to get current latitude and longtitude, not hard code**********************************/
 
         /************************************************************/
-
-        setMarkers(currentLocation,"Alumni Arena", 43.000582, -78.781136);
+        setMarkers(currentLocation, "Talbert Hall", 43.000772, -78.7915403);
+        setMarkers(currentLocation, "Alumni Arena", 43.000582, -78.781136);
         setMarkers(currentLocation, "UB Center for the Arts", 43.001205, -78.783030);
-        setMarkers(currentLocation,"Lockwood Memorial Library", 43.000407, -78.785796);
+        setMarkers(currentLocation, "Lockwood Memorial Library", 43.000407, -78.785796);
         setMarkers(currentLocation, "Student Union", 43.001256, -78.786241);
         setMarkers(currentLocation, "Clemens Hall", 43.000523, -78.784979);
         setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
-        setMarkers(currentLocation, "UB Bookstore", 43.002961, -78.7868477);
 
 
 
@@ -247,7 +244,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     }
 
     public boolean canGetLocation(){
-        return this.canGetLocation;
+        return this._canGetLocation;
     }
 
 
@@ -285,7 +282,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     public void initMarkerLocationZoom(double latitude, double longitude, float zoom) {
         // Add a marker in UB bookstore and move the camera
         LatLng UB = new LatLng(latitude, longitude);
-        _googleMap.addMarker(new MarkerOptions().position(UB).title("UB Bookstore"));
+        _googleMap.addMarker(new MarkerOptions().position(UB).title("UB Bookstore").alpha(0.5f));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(UB, zoom);
         //googleMap.moveCamera(CameraUpdateFactory.newLatLng(UBBookStore));
 
@@ -309,18 +306,37 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
         float distance = currentLocation.distanceTo(destination);  /** get the distance*******************************/
 
-        _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
-                .position(new LatLng(latitude, longitude))
-                .snippet("The distance is: " + Float.toString(distance) + " meters"));
+        if(distance < 100){
+            _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
+                    .position(new LatLng(latitude, longitude))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+                    .snippet("The distance is: " + Float.toString(distance) + " meters"));
+        }
+        else if (distance < 500){
+            _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
+                    .position(new LatLng(latitude, longitude))
+                    .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    .snippet("The distance is: " + Float.toString(distance) + " meters"));
+        }
+        else
+        {
+            _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
+                    .position(new LatLng(latitude, longitude))
+                    .snippet("The distance is: " + Float.toString(distance) + " meters"));
+        }
+
+
+
+
 
     }
 
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
-        myLocationRequest = LocationRequest.create();
-        myLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // get the best user location
-        myLocationRequest.setInterval(1000); // how many times i want the location.every 1sec get the location fetched
+        _myLocationRequest = LocationRequest.create();
+        _myLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // get the best user location
+        _myLocationRequest.setInterval(1000); // how many times i want the location.every 1sec get the location fetched
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -334,7 +350,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
                 return;
             }
         }
-        LocationServices.FusedLocationApi.requestLocationUpdates(myGoogleApiClient, myLocationRequest, (com.google.android.gms.location.LocationListener)this); // this is who is listening the location
+        LocationServices.FusedLocationApi.requestLocationUpdates(_myGoogleApiClient, _myLocationRequest, (com.google.android.gms.location.LocationListener)this); // this is who is listening the location
 
 
     }

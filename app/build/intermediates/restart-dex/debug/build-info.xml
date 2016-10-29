@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="22"
+    density="hdpi"
+    format="7"
+    timestamp="130893299563246"
+    token="-2291297791300574521"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="99" />
+    <task
+        name="instant-run-dex"
+        duration="285" />
+    <task
+        name="instant-run-transform"
+        duration="8" />
+    <task
+        name="verifier"
+        duration="2" />
+
+    <artifact
+        location="C:\Users\Admin\AndroidStudioProjects\FacebookLog\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
+
+    <build timestamp="130626423293312" >
+        <artifact
+            location="C:\Users\Admin\AndroidStudioProjects\FacebookLog\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="130834820468673" >
+        <artifact
+            location="C:\Users\Admin\AndroidStudioProjects\FacebookLog\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="130893299563246"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="C:\Users\Admin\AndroidStudioProjects\FacebookLog\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>

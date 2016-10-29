@@ -1,0 +1,1 @@
+CHANGED,C:\Users\Admin\AndroidStudioProjects\FacebookLog\app\build\intermediates\transforms\instantRun\debug\folders\1\5\main\com\example\admin\facebooklog\FacebookFragment$1.class

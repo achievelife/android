@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.ywang77buffalo.locationactivity.clubdesActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="ACTIVITY DESCRIPTION :"
+        android:id="@+id/textView45"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Clubbing (also known as club culture, related to raving) is custom of visiting and gathering socially at nightclubs (discotheques, discos or just clubs) and festivals. That includes socializing, listening to music, dancing, drinking alcohol and sometimes using recreational drugs. In most cases it is done to hear new music on larger systems than one would usually have in their domicile or for socializing and meeting new people. Clubbing and raves have historically referred to grass-roots organized, anti-establishment and unlicensed all night dance parties, typically featuring electronically produced dance music, such as techno, house, trance and drum and bass."
+        android:id="@+id/textView47"
+        android:layout_below="@+id/textView45"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="START ACTIVITY"
+        android:id="@+id/button27"
+        android:layout_below="@+id/textView47"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/textView47" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock12"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

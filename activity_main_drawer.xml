@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/Center_for_the_Arts"
+
+            android:title="UB Center for the Arts" />
+        <item
+            android:id="@+id/Lockwood_Memorial_Library"
+
+            android:title="Lockwood Memorial Library" />
+        <item
+            android:id="@+id/Student_Union"
+
+            android:title="Student Union" />
+        <item
+            android:id="@+id/Clemens_Hall"
+
+            android:title="Clemens Hall" />
+        <item
+            android:id="@+id/Charles_B_Sears_Law_Library"
+
+            android:title="Charles B. Sears Law Library" />
+        <item
+            android:id="@+id/Alumni_Arena"
+
+            android:title="Alumni Arena" />
+    </group>
+
+    <item android:title="Community">
+        <menu>
+            <item
+                android:id="@+id/Level_Bound"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Level Bound" />
+            <item
+                android:id="@+id/Activity_Log"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Activity Log" />
+            <item
+                android:id="@+id/Setting"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Setting" />
+        </menu>
+    </item>
+
+</menu>

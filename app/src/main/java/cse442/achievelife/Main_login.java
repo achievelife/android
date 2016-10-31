@@ -16,9 +16,9 @@ public class Main_login extends AppCompatActivity {
 
         Button intelligence_Button = (Button) findViewById(R.id.intelligenceButton);
         Button fitness_Button = (Button) findViewById(R.id.fitnessButton);
+        Button activity_log_Button = (Button) findViewById(R.id.activity_logButton);
         Button leaderBoard_Button = (Button) findViewById(R.id.leaderBoardButton);
         Button settings_Button = (Button) findViewById(R.id.settingsButton);
-        Button activity_log_Button = (Button) findViewById(R.id.activity_logButton);
 
         intelligence_Button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -29,7 +29,7 @@ public class Main_login extends AppCompatActivity {
 
         fitness_Button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), Fitness.class);
+                Intent intent = new Intent(getApplicationContext(), FitnessMap.class);
                 startActivity(intent);
             }
         });
@@ -40,5 +40,6 @@ public class Main_login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }

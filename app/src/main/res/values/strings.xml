@@ -2,9 +2,9 @@
     <string name="app_name">AchieveLife</string>
     <string name="action_intelligence">Intelligence</string>
     <string name="action_fitness">Fitness</string>
-    <string name="action_activity_log">Activity Log</string>
     <string name="action_leaderBoard">Leader Board</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_fitness">Map</string>
+    <string name="action_activity_log">Activity Log</string>
 
 </resources>

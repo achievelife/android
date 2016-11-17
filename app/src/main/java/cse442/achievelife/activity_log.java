@@ -47,36 +47,36 @@ public class activity_log extends AppCompatActivity {
     private static final String TAG_POINTS="points";
     private static final String TAG_SKILL="skill";
 
-    private class AsynDataClass extends AsyncTask<String, Void, String> {
+    //private class AsynDataClass extends AsyncTask<String, Void, String> {
 
         @Override
-        protected String doInBackground(String... params) {
-            HttpClient client = new DefaultHttpClient();
+        //protected String doInBackground(String... params) {
+            //HttpClient client = new DefaultHttpClient();
             //HttpPost httpPost = new HttpPost(url);
-            HttpGet httpget = new HttpGet(url);
+            //HttpGet httpget = new HttpGet(url);
 
-            String jsonResult = "";
+            //String jsonResult = "";
 
-            try {
-                HttpResponse response = httpClient.execute(httpPost);
-                HttpEntity entitity = reponse.getEntitity();
-                jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
+            //try {
+                //HttpResponse response = httpClient.execute(httpPost);
+                //HttpEntity entitity = reponse.getEntitity();
+                //jsonResult = inputStreamToString(response.getEntity().getContent()).toString();
 
                 //BufferedReader reader = new BufferedReader(new InputStreamReader(content));
 
                 //System.out.println("Returned Json object " + jsonResult.toString());
-                while ((line =reader.readLine()) != null){
-                    builder.append(line);
-                }
+                //while ((line =reader.readLine()) != null){
+                    //builder.append(line);
+                //}
 
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return jsonResult;
-        }
-    }
+            //} catch (ClientProtocolException e) {
+                //e.printStackTrace();
+            //} catch (IOException e) {
+                //e.printStackTrace();
+            //}
+            //return jsonResult;
+        //}
+    //}
 
 
     String[] mobileArray = {"id:Sample0 name:fitness start:10:47 end:10:47","id:Sample1 name:intelligence start:10:47 end:10:47","id:Sample2 name:social start:10:47 end:10:47","id:Sample3 name:finance start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47","id:Sample4 name:fitness start:10:47 end:10:47"};

@@ -1,9 +1,10 @@
 package cse442.achievelife;
 
-
+import android.os.Bundle;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
@@ -14,9 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.widget.Toast;
-
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -35,12 +34,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import static com.google.android.gms.maps.GoogleMap.*;
 
 
-
-public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+public class FitnessMap extends FragmentActivity implements OnInfoWindowClickListener, OnMarkerClickListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private GoogleMap _googleMap;
+    private GoogleApiClient _googleApiClient;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -61,13 +61,18 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     private static final long MINI_TIME_BW_UPDATE = 1000 * 60 * 1;
 
     protected LocationManager _locationManager;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
-    private GoogleApiClient client;
+
 
     public FitnessMap() {
         _isGpsEnabled = false;
@@ -87,11 +92,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         }
 
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
@@ -108,21 +109,18 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
     @Override
     public void onMapReady(GoogleMap map) {
         _googleMap = map;
-        _googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        _googleMap.setMapType(MAP_TYPE_TERRAIN);
 
 
         //bookstore to be initial the location mark
         initMarkerLocationZoom(43.0008093, -78.7911584, 18);
 
+
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
+
                 return;
             }
         }
@@ -132,16 +130,6 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
 
 
-        /*
-        getLocation();
-
-        if(canGetLocation){
-            Toast.makeText(getApplicationContext(),"your location is: " + _latitude
-            + ", " +_longtitude,Toast.LENGTH_LONG).show();
-
-        }
-
-*/
 
 
         /************************************/
@@ -161,94 +149,31 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
 
 
-/*
-        myGoogleApiClient = new GoogleApiClient.Builder(this).addApi(LocationServices.API)
-                .addConnectionCallbacks(this).addOnConnectionFailedListener(this)
-                .build();
-        myGoogleApiClient.connect();
-*/
+        _googleMap.setOnMarkerClickListener((OnMarkerClickListener) this);
+        _googleMap.setOnInfoWindowClickListener(this);
 
     }
 
-    /*
-    public Location getLocation() {
-        try {
-            _locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
-            isGpsEnabled = _locationManager.isProviderEnabled(_locationManager.GPS_PROVIDER);
-            isNetworkEnabled = _locationManager.isProviderEnabled(_locationManager.NETWORK_PROVIDER);
-
-            if (!isGpsEnabled && isNetworkEnabled) {
-
-            } else {
-                this.canGetLocation = true;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                        // TODO: Consider calling
-                        //    ActivityCompat#requestPermissions
-                        // here to request the missing permissions, and then overriding
-                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                        //                                          int[] grantResults)
-                        // to handle the case where the user grants the permission. See the documentation
-                        // for ActivityCompat#requestPermissions for more details.
-                        return _location;
-                    }
-                }
-                _locatio nManager.requestLocationUpdates(_locationManager.NETWORK_PROVIDER,
-                            MINI_TIME_BW_UPDATE,
-                            MIN_DISTANCE_CHANG_FOR_UPDATE,
-                            (android.location.LocationListener) this);
-                    
-
-                if(_locationManager != null){
-                    _location = _locationManager.getLastKnownLocation(_locationManager.NETWORK_PROVIDER);
-                    if(_location != null){
-                        _latitude = _location.getLatitude();
-                        _longtitude = _location.getLongitude();
-                    }
-                }
-                }
-                if(isGpsEnabled){
-                    _locationManager.requestLocationUpdates(_locationManager.GPS_PROVIDER,
-                            MINI_TIME_BW_UPDATE,
-                            MIN_DISTANCE_CHANG_FOR_UPDATE,
-                            (android.location.LocationListener)this);
 
 
-
-                }
-
-
-
-        }catch(Exception ex){
-
-        }
-
-        return _location;
-    }
-    */
-
-    public double getLatitude(){
-        if(_location != null){
+    public double getLatitude() {
+        if (_location != null) {
             _latitude = _location.getLatitude();
         }
         return _latitude;
     }
 
-    public double getLongtitude(){
-        if(_location!= null){
+    public double getLongtitude() {
+        if (_location != null) {
             _longtitude = _location.getLongitude();
         }
 
         return _longtitude;
     }
 
-    public boolean canGetLocation(){
+    public boolean canGetLocation() {
         return this._canGetLocation;
     }
-
-
-
-
 
 
     public boolean googleServicesAvailable() {
@@ -297,7 +222,7 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
         _googleMap.animateCamera(cameraUpdate);
     }
 
-    public void setMarkers(Location currentLocation,String locality, double latitude, double longitude) {
+    public void setMarkers(Location currentLocation, String locality, double latitude, double longitude) {
 
         Location destination = new Location(locality);
         destination.setLatitude(latitude);
@@ -305,29 +230,22 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
         float distance = currentLocation.distanceTo(destination);  /** get the distance*******************************/
 
-        if(distance < 100){
+        if (distance < 100) {
             _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
                     .position(new LatLng(latitude, longitude))
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
                     .snippet("The distance is: " + Float.toString(distance) + " meters"));
-        }
-        else if (distance < 500){
+        } else if (distance < 500) {
             _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
                     .position(new LatLng(latitude, longitude))
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                     .snippet("The distance is: " + Float.toString(distance) + " meters"));
-        }
-        else
-        {
+        } else {
             _marker = _googleMap.addMarker(new MarkerOptions().title(locality)
                     .position(new LatLng(latitude, longitude))
                     .snippet("The distance is: " + Float.toString(distance) + " meters"));
         }
-
-
-
-
-
+        _marker.showInfoWindow();
     }
 
 
@@ -339,17 +257,10 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return;
             }
         }
-        LocationServices.FusedLocationApi.requestLocationUpdates(_myGoogleApiClient, _myLocationRequest, (com.google.android.gms.location.LocationListener)this); // this is who is listening the location
+        LocationServices.FusedLocationApi.requestLocationUpdates(_myGoogleApiClient, _myLocationRequest, (com.google.android.gms.location.LocationListener) this); // this is who is listening the location
 
 
     }
@@ -411,23 +322,77 @@ public class FitnessMap extends FragmentActivity implements OnMapReadyCallback, 
 
     @Override
     public void onStart() {
-        super.onStart();
+        super.onStart();// ATTENTION: This was auto-generated to implement the App Indexing API.
+// See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+        //client.connect();
+        //AppIndex.AppIndexApi.start(client, getIndexApiAction());
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.start(client, getIndexApiAction0());
     }
 
     @Override
     public void onStop() {
-        super.onStop();
+        super.onStop();// ATTENTION: This was auto-generated to implement the App Indexing API.
+// See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction0());
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
-        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        // AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        //  client.disconnect();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.disconnect();
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction0() {
+        Thing object = new Thing.Builder()
+                .setName("FitnessMap Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        /*
+        if (marker.getTitle().equals("Alumni Arena")){
+
+            return true;
+        }
+*/
+        
+        // Return false to indicate that we have not consumed the event and that we wish
+        // for the default behavior to occur (which is for the camera to move such that the
+        // marker is centered and for the marker's info window to open, if it has one).
+        return false;
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+
+        if (marker.getTitle().equals("Alumni Arena")){
+
+            Intent intent = new Intent(getApplicationContext(), main_intelligence.class);
+            startActivity(intent);
+
+            /*Intent intent = new Intent(FitnessMap.this,aaActivity.class);
+            startActivity(intent);*/
+        }
+
+    }
 }
 
 

@@ -41,6 +41,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main_intelligence" />
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -60,6 +61,26 @@
             android:label="@string/title_activity_fitness"></activity>
 
         <activity android:name=".activity_log" />
+        <activity android:name=".aaActivity" />
+        <activity android:name=".cpActivity" />
+        <activity android:name=".gymActivity" />
+        <activity android:name=".gymdesActivity" />
+        <activity android:name=".gymstartActivity" />
+        <activity android:name=".lwActivity" />
+        <activity android:name=".suActivity" />
+        <activity android:name=".stActivity" />
+        <activity android:name=".studyActivity" />
+        <activity android:name=".studydesActivity" />
+        <activity android:name=".studystartActivity" />
+        <activity android:name=".readingActivity" />
+        <activity android:name=".readingdesActivity" />
+        <activity android:name=".readingstartActivity" />
+        <activity android:name=".jogActivity" />
+        <activity android:name=".jogdesActivity" />
+        <activity android:name=".jogstartActivity" />
+        <activity android:name=".clubActivity" />
+        <activity android:name=".clubdesActivity" />
+        <activity android:name=".clubstartActivity"></activity>
     </application>
 
 </manifest>

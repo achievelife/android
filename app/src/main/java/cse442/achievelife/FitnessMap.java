@@ -147,6 +147,9 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
         setMarkers(currentLocation, "Student Union", 43.001256, -78.786241);
         setMarkers(currentLocation, "Clemens Hall", 43.000523, -78.784979);
         setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
+        setMarkers(currentLocation, "Oscar A. Silverman Library",43.001107,-78.789558);
+        setMarkers(currentLocation, "Commons", 43.001845, -78.785193);
+        setMarkers(currentLocation, "UB Stadium", 43.000045, -78.777585);
 
 
         _googleMap.setOnMarkerClickListener((OnMarkerClickListener) this);
@@ -385,11 +388,24 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
 
         if (marker.getTitle().equals("Alumni Arena")){
 
-            Intent intent = new Intent(getApplicationContext(), main_intelligence.class);
+            Intent intent = new Intent(getApplicationContext(), aaActivity.class);
             startActivity(intent);
-
-            /*Intent intent = new Intent(FitnessMap.this,aaActivity.class);
-            startActivity(intent);*/
+        }
+        else if(marker.getTitle().equals("Oscar A. Silverman Library")){
+            Intent intent = new Intent(getApplicationContext(), cpActivity.class);
+            startActivity(intent);
+        }
+        else if(marker.getTitle().equals("Lockwood Memorial Library")) {
+            Intent intent = new Intent(getApplicationContext(), lwActivity.class);
+            startActivity(intent);
+        }
+        else if(marker.getTitle().equals("Student Union")) {
+            Intent intent = new Intent(getApplicationContext(), suActivity.class);
+            startActivity(intent);
+        }
+        else if(marker.getTitle().equals("UB Stadium")) {
+            Intent intent = new Intent(getApplicationContext(), stActivity.class);
+            startActivity(intent);
         }
 
     }

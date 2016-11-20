@@ -1,0 +1,62 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="cse442.achievelife.clubstartActivity"
+    >
+    <TextView
+        android:id="@+id/message4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="CountDown Timer for this Activity"
+        />
+    <Button
+        android:id="@+id/start4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Start"
+        android:layout_below="@id/message4"
+        />
+    <Button
+        android:id="@+id/pause4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Pause"
+        android:layout_below="@id/message4"
+        android:layout_toRightOf="@id/start4"
+        />
+    <Button
+        android:id="@+id/resume4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Resume"
+        android:layout_below="@id/message4"
+        android:layout_toRightOf="@id/pause4"
+        />
+    <Button
+        android:id="@+id/cancel4"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Cancel"
+        android:layout_below="@id/message4"
+        android:layout_toRightOf="@id/resume4"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Have A Nice Day !"
+        android:id="@+id/niceday4"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/start4" />
+
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textClock15"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/cancel4" />
+</RelativeLayout>

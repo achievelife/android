@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:fontFamily="Courier"
+        android:textStyle="bold"
+        android:id="@+id/textView1"
+        tools:text="Alumni Arena" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:scaleX="2.5"
+        android:scaleY="2.5"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/imageView"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="5dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView2"
+        tools:text="Alumni Arena is a multi-purpose arena in Amherst, New York. The arena is home to the State University of New York at Buffalo men's and women's basketball teams, the women's volleyball team, and wrestling team. The facility currently seats 15,750 people." />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView3"
+        tools:text="You can train these skills here:" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView4"
+        tools:text="Fitness" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView5"
+        tools:text="Intelligence" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView6"
+        tools:text="Social" />
+
+
+
+
+</LinearLayout>

@@ -17,13 +17,6 @@ import org.json.JSONObject;
 
 //import android.os.AsyncTask;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.params.BasicHttpParams;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -49,7 +42,7 @@ public class activity_log extends AppCompatActivity {
 
     //private class AsynDataClass extends AsyncTask<String, Void, String> {
 
-        @Override
+        //@Override
         //protected String doInBackground(String... params) {
             //HttpClient client = new DefaultHttpClient();
             //HttpPost httpPost = new HttpPost(url);

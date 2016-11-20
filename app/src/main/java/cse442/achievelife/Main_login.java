@@ -43,7 +43,7 @@ public class Main_login extends AppCompatActivity {
 
         activity_log_Button.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(), profile.class);
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
                 startActivity(intent);
             }
         });

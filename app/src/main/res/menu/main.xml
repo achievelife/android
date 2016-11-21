@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/setting"
+        android:id="@+id/mapTypeNone"
+        android:title="map_type_none"/>
+    <item
+        android:id="@+id/mapTypeNormal"
+        android:title="map_type_Normal"/>
+    <item
+        android:id="@+id/mapTypeSatellite"
+        android:title="map_type_satelitte"/>
+    <item
+        android:id="@+id/mapTypeHybrid"
+        android:title="map_type_hybrid"
 
-        android:title="setting" />
+        />
+
 
 </menu>

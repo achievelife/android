@@ -3,30 +3,6 @@
 
     <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/Center_for_the_Arts"
-
-            android:title="UB Center for the Arts" />
-        <item
-            android:id="@+id/Lockwood_Memorial_Library"
-
-            android:title="Lockwood Memorial Library" />
-        <item
-            android:id="@+id/Student_Union"
-
-            android:title="Student Union" />
-        <item
-            android:id="@+id/Clemens_Hall"
-
-            android:title="Clemens Hall" />
-        <item
-            android:id="@+id/Charles_B_Sears_Law_Library"
-
-            android:title="Charles B. Sears Law Library" />
-        <item
-            android:id="@+id/Alumni_Arena"
-
-            android:title="Alumni Arena" />
     </group>
 
     <item android:title="Community">

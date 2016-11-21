@@ -7,23 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cse442.achievelife.stActivity">
+    tools:context="edu.ywang77buffalo.locationactivity.aaActivity">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="UB STADIUM"
+        android:text="UB Stadium"
         android:id="@+id/textView49"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true" />
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scrollbars="vertical"
-        android:layout_above="@+id/textClock19"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="118dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -32,36 +34,45 @@
             android:orientation="vertical"
             android:weightSum="1">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:id="@+id/imageView4"
+                android:src="@drawable/st"
+                android:layout_above="@+id/textView50"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="ompleted in the summer of 1993, UB Stadium is the home of the football team, UB's track and field teams and the men's and women's soccer teams.The official ground-breaking of UB Stadium was held on September 17, 1991, and the $23 million complex was financed by the New York State Dormitory Authority. The stadium was the site of track and field competition and closing ceremonies for the 1993 World University Games, an event which attracted more than 5,000 athletes from over 130 countries. The facility was also the site of the 1998 men's and women's NCAA Division I Outdoor Track and Field Championships, the first Division I championship ever contested in Western New York."
+                android:text="Completed in the summer of 1993, UB Stadium is the home of the football team, UB's track and field teams and the men's and women's soccer teams.The official ground-breaking of UB Stadium was held on September 17, 1991, and the $23 million complex was financed by the New York State Dormitory Authority. The stadium was the site of track and field competition and closing ceremonies for the 1993 World University Games, an event which attracted more than 5,000 athletes from over 130 countries. The facility was also the site of the 1998 men's and women's NCAA Division I Outdoor Track and Field Championships, the first Division I championship ever contested in Western New York."
                 android:id="@+id/textView50"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1.10" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f00"
+                android:text="VIEW AVAILABLE ACTIVITIES"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_weight="1.10"
+                android:id="@+id/button28"
+                android:layout_marginBottom="60dp"
+                android:layout_above="@+id/textClock19"
+                android:layout_alignParentStart="true" />
+
 
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#f00"
-        android:text="VIEW AVAILABLE ACTIVITIES"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        android:layout_weight="0.13"
-        android:id="@+id/button28"
-        android:layout_above="@+id/textClock19"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="85dp" />
-
     <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textClock19"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:id="@+id/textClock19" />
+
 </RelativeLayout>

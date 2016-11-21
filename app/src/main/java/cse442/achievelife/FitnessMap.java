@@ -149,7 +149,7 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
         setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
         setMarkers(currentLocation, "Oscar A. Silverman Library",43.001107,-78.789558);
         setMarkers(currentLocation, "Commons", 43.001845, -78.785193);
-        setMarkers(currentLocation, "UB Stadium", 42.999159, -78.777510);
+        setMarkers(currentLocation, "UB Stadium", 43.000045, -78.777585);
 
 
         _googleMap.setOnMarkerClickListener((OnMarkerClickListener) this);
@@ -219,7 +219,9 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
 
     public void goToLocationZoom(double latitude, double longitude, float zoom) {
         LatLng latLng = new LatLng(latitude, longitude);
+        // googleMap.addMarker(new MarkerOptions().position(UBBookStore).title("UB Bookstore"));
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, zoom);
+        //googleMap.moveCamera(CameraUpdateFactory.newLatLng(UBBookStore));
         _googleMap.animateCamera(cameraUpdate);
     }
 
@@ -247,7 +249,6 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
                     .snippet("The distance is: " + Float.toString(distance) + " meters"));
         }
         _marker.showInfoWindow();
-        _googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
     }
 
 
@@ -369,6 +370,12 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        /*
+        if (marker.getTitle().equals("Alumni Arena")){
+
+            return true;
+        }
+*/
         
         // Return false to indicate that we have not consumed the event and that we wish
         // for the default behavior to occur (which is for the camera to move such that the
@@ -380,6 +387,7 @@ public class FitnessMap extends FragmentActivity implements OnInfoWindowClickLis
     public void onInfoWindowClick(Marker marker) {
 
         if (marker.getTitle().equals("Alumni Arena")){
+
             Intent intent = new Intent(getApplicationContext(), aaActivity.class);
             startActivity(intent);
         }

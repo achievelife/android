@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cse442.achievelife.lwActivity">
+    tools:context="edu.ywang77buffalo.locationactivity.aaActivity">
 
 
     <TextView
@@ -18,10 +18,14 @@
         android:id="@+id/textView34"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true" />
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="118dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -30,36 +34,45 @@
             android:orientation="vertical"
             android:weightSum="1">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:id="@+id/imageView3"
+                android:src="@drawable/lw"
+                android:layout_above="@+id/textView35"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text= "Lockwood Memorial Library, UB’s main library located on the North Campus, features services, collections and librarians supporting students and faculty in Arts and Sciences, Education, Engineering and Applied Sciences, Management and Social Work. The library is open to the UB and Western New York communities.In addition to books and periodicals covering most knowledge areas, Lockwood offers the following special collections."
+                android:text="Lockwood Memorial Library, UB’s main library located on the North Campus, features services, collections and librarians supporting students and faculty in Arts and Sciences, Education, Engineering and Applied Sciences, Management and Social Work. The library is open to the UB and Western New York communities.In addition to books and periodicals covering most knowledge areas, Lockwood offers the following special collections."
                 android:id="@+id/textView35"
                 android:layout_gravity="center_horizontal"
                 android:layout_weight="1.10" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f00"
+                android:text="VIEW AVAILABLE ACTIVITIES"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:layout_weight="1.10"
+                android:id="@+id/button22"
+                android:layout_marginBottom="60dp"
+                android:layout_above="@+id/textClock14"
+                android:layout_alignParentStart="true" />
+
 
         </LinearLayout>
 
     </ScrollView>
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#f00"
-        android:text="VIEW AVAILABLE ACTIVITIES"
-        android:textColor="#fff"
-        android:textSize="20sp"
-        android:layout_weight="0.13"
-        android:id="@+id/button22"
-        android:layout_marginBottom="60dp"
-        android:layout_above="@+id/textClock14"
-        android:layout_alignParentStart="true" />
-
     <TextClock
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textClock14"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:id="@+id/textClock14" />
+
 </RelativeLayout>

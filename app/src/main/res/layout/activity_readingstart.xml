@@ -59,4 +59,15 @@
         android:id="@+id/textClock13"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/cancel3" />
+
+    <Button
+        android:id="@+id/retrieve_location_button"
+        android:text="Retrieve Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start3"
+        android:layout_marginTop="133dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+    />
 </RelativeLayout>

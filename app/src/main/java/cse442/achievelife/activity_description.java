@@ -11,10 +11,6 @@ import android.widget.TextView;
 
 public class activity_description extends AppCompatActivity {
 
-    //TextView textView1 = (TextView)findViewById(R.id.textView1);
-    TextView textView1;
-    ListView listView1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

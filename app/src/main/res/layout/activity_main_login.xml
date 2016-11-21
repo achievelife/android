@@ -23,42 +23,49 @@
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:text="@string/action_intelligence"
             android:id="@+id/intelligenceButton"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:text="@string/action_fitness"
             android:id="@+id/fitnessButton"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:text="@string/action_leaderBoard"
             android:id="@+id/leaderBoardButton"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:text="@string/action_activity_log"
             android:id="@+id/activity_logButton"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
             android:text="@string/action_profile"
             android:id="@+id/profileButton"
             android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="fill_parent"
-            android:layout_height="100dp"
+            android:layout_height="75dp"
+            android:text="@string/action_activity_description"
+            android:id="@+id/activity_descriptionButton"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="75dp"
             android:text="@string/action_settings"
             android:id="@+id/settingsButton"
             android:layout_gravity="center_horizontal" />

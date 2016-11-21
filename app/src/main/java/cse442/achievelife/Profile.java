@@ -17,16 +17,13 @@ import org.json.JSONObject;
 
 //import android.os.AsyncTask;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class Profile extends AppCompatActivity {
-
-    //TextView textView1 = (TextView)findViewById(R.id.textView1);
-    TextView textView1;
-    ListView listView1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

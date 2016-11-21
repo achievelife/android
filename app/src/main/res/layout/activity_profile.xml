@@ -8,7 +8,7 @@
     android:weightSum="1">
 
     <TextView
-        android:text="TextView"
+        android:text="John Doe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -16,21 +16,19 @@
         android:textSize="25dp"
         android:fontFamily="Courier"
         android:textStyle="bold"
-        android:id="@+id/textView2"
-        tools:text="John Doe" />
+        android:id="@+id/textView2"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="center"
-        android:scaleX="2.5"
-        android:scaleY="2.5"
-        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_height="150dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/facebookpic"
         android:id="@+id/imageView"
         android:layout_weight="0.62" />
 
     <TextView
-        android:text="TextView"
+        android:text="Level 3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -38,17 +36,20 @@
         android:textSize="15dp"
         android:fontFamily="Courier"
         android:textStyle="bold"
-        android:id="@+id/textView3"
-        tools:text="Level 3" />
+        android:id="@+id/textView3"/>
 
     <ProgressBar
-        style="?android:attr/progressBarStyleLarge"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar9" />
+        android:scaleY="2.5"
+        android:layout_weight=".05"
+        android:id="@+id/progressBar20"
+        android:progress="89"
+        android:progressTint="@android:color/holo_orange_dark" />
 
     <TextView
-        android:text="TextView"
+        android:text="10345/11000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -56,8 +57,7 @@
         android:textSize="15dp"
         android:fontFamily="Courier"
         android:textStyle="bold"
-        android:id="@+id/textView5"
-        tools:text="10345/11000" />
+        android:id="@+id/textView5"/>
 
     <View
         android:layout_width="match_parent"
@@ -66,22 +66,20 @@
         android:background="@android:color/black"/>
 
     <TextView
-        android:text="TextView"
+        android:text="Your Stats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="20dp"
-        android:id="@+id/textView6"
-        tools:text="Your Stats" />
+        android:id="@+id/textView6"/>
 
     <TextView
-        android:text="TextView"
+        android:text="Intelligence"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView7"
-        tools:text="Intelligence" />
+        android:id="@+id/textView7"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -92,23 +90,21 @@
         android:progressTint="@android:color/holo_green_dark" />
 
     <TextView
-        android:text="TextView"
+        android:text="3456/5432"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView9"
-        tools:text="3456/5432" />
+        android:id="@+id/textView9"/>
 
     <TextView
-        android:text="TextView"
+        android:text="Fitness"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView8"
-        tools:text="Fitness" />
+        android:id="@+id/textView8"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -116,26 +112,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/progressBar11"
         android:progress="71"
-        android:progressTint="@android:color/holo_orange_dark" />
+        android:progressTint="@android:color/holo_purple" />
 
     <TextView
-        android:text="TextView"
+        android:text="5412/7845"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView10"
-        tools:text="5412/7845" />
+        android:id="@+id/textView10"/>
 
     <TextView
-        android:text="TextView"
+        android:text="Social"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView11"
-        tools:text="Social" />
+        android:id="@+id/textView11"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -146,23 +140,21 @@
         android:progressTint="@android:color/holo_red_dark" />
 
     <TextView
-        android:text="TextView"
+        android:text="1001/3006"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView12"
-        tools:text="1001/3006" />
+        android:id="@+id/textView12"/>
 
     <TextView
-        android:text="TextView"
+        android:text="Finances"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView13"
-        tools:text="Finances" />
+        android:id="@+id/textView13"/>
 
     <ProgressBar
         style="?android:attr/progressBarStyleHorizontal"
@@ -173,12 +165,11 @@
         android:progressTint="@android:color/holo_blue_dark" />
 
     <TextView
-        android:text="TextView"
+        android:text="6008/8009"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:textSize="15dp"
-        android:id="@+id/textView14"
-        tools:text="6008/8009" />
+        android:id="@+id/textView14"/>
 
 </LinearLayout>

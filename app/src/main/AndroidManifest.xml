@@ -60,6 +60,10 @@
             android:label="@string/title_activity_fitness"></activity>
 
         <activity android:name=".activity_log" />
+
+        <activity android:name=".Profile" />
+
+        <activity android:name=".activity_description" />
     </application>
 
 </manifest>

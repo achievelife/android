@@ -7,5 +7,6 @@
     <string name="title_activity_fitness">Map</string>
     <string name="action_activity_log">Activity Log</string>
     <string name="action_profile">Profile</string>
+    <string name="action_activity_description">Activity Description</string>
 
 </resources>

@@ -81,7 +81,7 @@
         <activity android:name=".clubActivity" />
         <activity android:name=".clubdesActivity" />
         <activity android:name=".clubstartActivity"/>
-	<activity android:name=".Profile" />
+	    <activity android:name=".Profile" />
         <activity android:name=".activity_description" />
     </application>
 

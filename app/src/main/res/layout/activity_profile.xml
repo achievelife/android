@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="20dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="John Doe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:fontFamily="Courier"
+        android:textStyle="bold"
+        android:id="@+id/textView2"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/facebookpic"
+        android:id="@+id/imageView"
+        android:layout_weight="0.62" />
+
+    <TextView
+        android:text="Level 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:fontFamily="Courier"
+        android:textStyle="bold"
+        android:id="@+id/textView3"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleY="2.5"
+        android:layout_weight=".05"
+        android:id="@+id/progressBar20"
+        android:progress="89"
+        android:progressTint="@android:color/holo_orange_dark" />
+
+    <TextView
+        android:text="10345/11000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:fontFamily="Courier"
+        android:textStyle="bold"
+        android:id="@+id/textView5"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="5dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:text="Your Stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:id="@+id/textView6"/>
+
+    <TextView
+        android:text="Intelligence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView7"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar10"
+        android:progress="35"
+        android:progressTint="@android:color/holo_green_dark" />
+
+    <TextView
+        android:text="3456/5432"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView9"/>
+
+    <TextView
+        android:text="Fitness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView8"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar11"
+        android:progress="71"
+        android:progressTint="@android:color/holo_purple" />
+
+    <TextView
+        android:text="5412/7845"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView10"/>
+
+    <TextView
+        android:text="Social"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView11"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar12"
+        android:progress="21"
+        android:progressTint="@android:color/holo_red_dark" />
+
+    <TextView
+        android:text="1001/3006"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView12"/>
+
+    <TextView
+        android:text="Finances"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView13"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar13"
+        android:progress="89"
+        android:progressTint="@android:color/holo_blue_dark" />
+
+    <TextView
+        android:text="6008/8009"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:id="@+id/textView14"/>
+
+</LinearLayout>

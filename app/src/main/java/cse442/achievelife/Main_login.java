@@ -17,6 +17,8 @@ public class Main_login extends AppCompatActivity {
         Button intelligence_Button = (Button) findViewById(R.id.intelligenceButton);
         Button fitness_Button = (Button) findViewById(R.id.fitnessButton);
         Button activity_log_Button = (Button) findViewById(R.id.activity_logButton);
+        Button profile_Button = (Button) findViewById(R.id.profileButton);
+        Button activity_description_Button = (Button) findViewById(R.id.activity_descriptionButton);
         Button leaderBoard_Button = (Button) findViewById(R.id.leaderBoardButton);
         Button settings_Button = (Button) findViewById(R.id.settingsButton);
 
@@ -41,5 +43,18 @@ public class Main_login extends AppCompatActivity {
             }
         });
 
+        profile_Button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), Profile.class);
+                startActivity(intent);
+            }
+        });
+
+        activity_description_Button.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(), activity_description.class);
+                startActivity(intent);
+            }
+        });
     }
 }

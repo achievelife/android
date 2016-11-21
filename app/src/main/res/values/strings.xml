@@ -11,5 +11,6 @@
     <string name="stop_timer">Stop Timer</string>
     <string name="reset_timer">Reset Timer</string>
     <string name="timer">00:00:00</string>
-
+    <string name="action_profile">Profile</string>
+    <string name="action_activity_description">Activity Description</string>
 </resources>

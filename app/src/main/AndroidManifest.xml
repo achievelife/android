@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cse442.achievelife">
+    package="com.example.english.app">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <permission android:name="cse442.achievelife.permission.MAPS_RECEIVE"
-        android:protectionLevel="normal"/>
-    <uses-permission android:name="cse442.achievelife.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_COARSE_LOCATION" />
 
+    <permission
+        android:name="cse442.achievelife.permission.MAPS_RECEIVE"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="cse442.achievelife.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
-    <uses-feature android:glEsVersion="0x00020000"
-        android:required="true"/>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-
-
-
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -33,15 +34,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main_login">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main_intelligence" />
-
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -53,34 +55,31 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
 
-        <activity
-            android:name=".FitnessMap"
-            android:label="@string/title_activity_fitness"></activity>
-
+        <activity android:name=".activity_description" />
+        <activity android:name=".Profile" />
         <activity android:name=".activity_log" />
         <activity android:name=".aaActivity" />
+        <activity android:name=".clubActivity" />
+        <activity android:name=".clubdesActivity" />
         <activity android:name=".cpActivity" />
-        <activity android:name=".gymActivity" />
         <activity android:name=".gymdesActivity" />
         <activity android:name=".gymstartActivity" />
-        <activity android:name=".lwActivity" />
-        <activity android:name=".suActivity" />
-        <activity android:name=".stActivity" />
-        <activity android:name=".studyActivity" />
-        <activity android:name=".studydesActivity" />
-        <activity android:name=".studystartActivity" />
-        <activity android:name=".readingActivity" />
-        <activity android:name=".readingdesActivity" />
-        <activity android:name=".readingstartActivity" />
         <activity android:name=".jogActivity" />
         <activity android:name=".jogdesActivity" />
         <activity android:name=".jogstartActivity" />
-        <activity android:name=".clubActivity" />
-        <activity android:name=".clubdesActivity" />
-        <activity android:name=".clubstartActivity"></activity>
+        <activity android:name=".lwActivity" />
+        <activity android:name=".readingActivity" />
+        <activity android:name=".readingdesActivity" />
+        <activity android:name=".readingstartActivity" />
+        <activity android:name=".stAcivity" />
+        <activity android:name=".studyActivity" />
+        <activity android:name=".studydesActivity" />
+        <activity android:name=".studystartActivity" />
+        <activity android:name=".suActivity" />
+        <activity android:name=".clubstartActivity" />
+        <activity android:name=".gymActivity" />
+        <activity android:name=".stActivity"></activity>
     </application>
 
 </manifest>

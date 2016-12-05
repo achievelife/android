@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cse442.achievelife">
 
     <!--
@@ -10,22 +11,20 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <permission android:name="cse442.achievelife.permission.MAPS_RECEIVE"
-        android:protectionLevel="normal"/>
-    <uses-permission android:name="cse442.achievelife.permission.MAPS_RECEIVE"/>
 
+    <permission
+        android:name="cse442.achievelife.permission.MAPS_RECEIVE"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="cse442.achievelife.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
-    <uses-feature android:glEsVersion="0x00020000"
-        android:required="true"/>
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-
-
-
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -33,12 +32,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Main_login">
+        <activity android:name=".FacebookLogin"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
         <activity android:name=".main_intelligence" />
 
@@ -53,13 +57,16 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
 
         <activity
             android:name=".FitnessMap"
-            android:label="@string/title_activity_fitness"></activity>
-
+            android:label="@string/title_activity_fitness" />
         <activity android:name=".activity_log" />
         <activity android:name=".aaActivity" />
         <activity android:name=".cpActivity" />
@@ -80,9 +87,23 @@
         <activity android:name=".jogstartActivity" />
         <activity android:name=".clubActivity" />
         <activity android:name=".clubdesActivity" />
-        <activity android:name=".clubstartActivity"/>
-	    <activity android:name=".Profile" />
+        <activity android:name=".clubstartActivity" />
+        <activity android:name=".Profile" />
         <activity android:name=".activity_description" />
+        <!--
+        <activity
+            android:name=".FacebookLogin"
+            android:label="@string/title_activity_facebook_login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+            -->
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name"
+            tools:replace="android:theme"/>
+
     </application>
 
 </manifest>

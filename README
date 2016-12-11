@@ -43,7 +43,7 @@ Backend API:
 	Database in MySQL.
 
 AchieveLife FrontEnd:
-	Link to frontend rep: https://github.com/achievelife/frontend
+	Link to frontend rep(contains relevant README): https://github.com/achievelife/frontend
 	Displays management and control tools for individual and collective users.
 	Written in HTML, JavaScript, JS with the Bootstrap 3 Library.
 	Calls information from server using JQuery's AJAX functions

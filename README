@@ -9,7 +9,7 @@
 
 Team: Jonathan Strzalka, Dan Weiss, James Droste, Mandy, Fan Yang, Y Wang
 
-Stable Release Download URL:
+Stable Release APK Download URL:
 
 License: The MIT License (MIT)
 
@@ -32,18 +32,28 @@ And if we are unable to bring balance you will atleast be better at the certain
 attributes that you completed the tasks for.
 
 How does AchieveLife work?
-The AchieveLife android app UI was designed and developed in JAVA and XML using the 
-Android Studio IDE.
+Android App:
+	The AchieveLife android app UI was designed and developed in JAVA and XML using the 
+	Android Studio IDE.
+	AchieveLife uses The Google Services, Google Maps, and Facebook API's. Integrates with our own backend API.
 
-The AchieveLife backend api was written in...
+Backend API:
+	Link to backend repo(contains relevant README): https://github.com/achievelife/backend
+	Server Based in AWS running a Flash-powered python application. 
+	Database in MySQL.
 
-The AchieveLife admin Panel was written in...
+AchieveLife FrontEnd:
+	Link to frontend rep: https://github.com/achievelife/frontend
+	Displays management and control tools for individual and collective users.
+	Written in HTML, JavaScript, JS with the Bootstrap 3 Library.
+	Calls information from server using JQuery's AJAX functions
+	Shows detailed information of the individual user(Account status, acitivity history, skill levels)
+	Allows editing of certain user attributes(Skill experience, account status)
 
 Future Plans:
-1) IOS app release
-2) Increased task accuracy with coordination to increased gps capabilities
-3) 
-
-
-
-
+1. Public release
+2. Add new ways for the app to check your location(QR codes, submitting pictures)
+3. Cheating/GPS spoofing checks
+4. Add more social functionality(Group activities, friends, looking for group)
+5.Increase accuracy of possible activities(Per building floor, individual rooms)
+6. iOS app development

@@ -34,18 +34,18 @@ attributes that you completed the tasks for.
 How does AchieveLife work?
 Android App:
 	The AchieveLife android app UI was designed and developed in JAVA and XML using the 
-	Android Studio IDE.
-	AchieveLife uses The Google Services, Google Maps, and Facebook API's. Integrates with our own backend API.
+	Android Studio IDE(https://developer.android.com/studio/index.html).
+	AchieveLife uses The Google Services(https://developers.google.com/android/guides/api-client), Google Maps(https://developers.google.com/maps/), and Facebook API's(https://developers.facebook.com/). Integrates with our own backend API.
 
 Backend API:
 	Link to backend repo(contains relevant README): https://github.com/achievelife/backend
-	Server Based in AWS running a Flash-powered python application. 
-	Database in MySQL.
+	Server Based in AWS running a Flask-powered python application(http://flask.pocoo.org/). 
+	Database in MySQL(https://www.mysql.com/).
 
 AchieveLife FrontEnd:
 	Link to frontend rep(contains relevant README): https://github.com/achievelife/frontend
 	Displays management and control tools for individual and collective users.
-	Written in HTML, JavaScript, JS with the Bootstrap 3 Library.
+	Written in HTML, JavaScript, JS with the Bootstrap 3 Library(http://getbootstrap.com/).
 	Calls information from server using JQuery's AJAX functions
 	Shows detailed information of the individual user(Account status, acitivity history, skill levels)
 	Allows editing of certain user attributes(Skill experience, account status)

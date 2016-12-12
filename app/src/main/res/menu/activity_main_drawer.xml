@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+    </group>
+
+    <item android:title="Community">
+        <menu>
+            <item
+                android:id="@+id/Profile"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Profile" />
+            <item
+                android:id="@+id/Level_Bound"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="LeaderBoard" />
+            <item
+                android:id="@+id/Activity_Log"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Activity Log" />
+
+            <item
+                android:id="@+id/Intelligence"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Intelligence" />
+            <item
+                android:id="@+id/Fitness"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Fitness" />
+            <item
+                android:id="@+id/Society"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="Society" />
+            <item
+                android:id="@+id/Setting"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Setting" />
+        </menu>
+    </item>
+
+</menu>

@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="cse442.achievelife.aaActivity">
+    tools:context="com.example.english.app.aaActivity">
 
 
     <TextView
@@ -23,23 +23,23 @@
         android:layout_height="fill_parent"
         android:scrollbars="vertical">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_margin="20dp"
-        android:orientation="vertical"
-        android:weightSum="1">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:weightSum="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Recreation and Intramural Services inspires a sustainable, healthy and active lifestyle for our students, faculty and staff through campus and community engagement, while promoting lifelong learning. We are committed to helping people make positive changes in their lives through our diverse wellness continuum, which is not only educational and challenging, but also fosters self-discovery and success. Diversity and inclusion are at the core of what we do. We provide a variety of programs and services that creatively meet the needs of our diverse student body and professional staff. While making it fun to play, learn and grow, we manage to inspire healthy and active lifestyles by creating a strong sense of belonging in a leisure environment, with the incorporation of solidarity and social interaction. We provide a secure and accessible environment where we adhere to the highest quality of safety and customer service."
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="1.10" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Recreation and Intramural Services inspires a sustainable, healthy and active lifestyle for our students, faculty and staff through campus and community engagement, while promoting lifelong learning. We are committed to helping people make positive changes in their lives through our diverse wellness continuum, which is not only educational and challenging, but also fosters self-discovery and success. Diversity and inclusion are at the core of what we do. We provide a variety of programs and services that creatively meet the needs of our diverse student body and professional staff. While making it fun to play, learn and grow, we manage to inspire healthy and active lifestyles by creating a strong sense of belonging in a leisure environment, with the incorporation of solidarity and social interaction. We provide a secure and accessible environment where we adhere to the highest quality of safety and customer service."
+                android:id="@+id/textView3"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1.10" />
 
-    </LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 

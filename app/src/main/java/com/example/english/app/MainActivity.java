@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

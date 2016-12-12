@@ -41,11 +41,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.HashMap;
+
 import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_TERRAIN;
 
 
 public class MainActivity extends AppCompatActivity
-        implements OnMapReadyCallback,GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener ,NavigationView.OnNavigationItemSelectedListener {
+        implements GoogleMap.OnInfoWindowClickListener, GoogleMap.OnMarkerClickListener, OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener, NavigationView.OnNavigationItemSelectedListener{
 
     private static final long MIN_DISTANCE_CHANG_FOR_UPDATE = 10;
     private static final long MINI_TIME_BW_UPDATE = 1000 * 60 * 1;
@@ -55,8 +57,13 @@ public class MainActivity extends AppCompatActivity
     private LocationRequest _myLocationRequest;
     private GoogleApiClient client;
     private GoogleApiClient _myGoogleApiClient;
-    private Location currentLocation;
+    private Location _currentLocation;
+    private HashMap<String, Float> _distanceTo;
 
+    public MainActivity() {
+        _currentLocation = new Location("");
+        _distanceTo = new HashMap<>();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,8 +72,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         supportMapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-
-
 
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -82,7 +87,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         supportMapFragment.getMapAsync(this);
-
 
     }
 
@@ -104,27 +108,13 @@ public class MainActivity extends AppCompatActivity
         }
         mMap.setMyLocationEnabled(true);
 
-        /************************************/
-        // below are all testing distance
-        // hard code, no
-        Location currentLocation = new Location("");
-        currentLocation.setLatitude(43.000774);
-        currentLocation.setLongitude(-78.7911897);            /**change code here, enable to get current latitude and longtitude, not hard code**********************************/
+        _myGoogleApiClient = new GoogleApiClient.Builder(this).addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
+        _myGoogleApiClient.connect();
 
-        /************************************************************/
-        setMarkers(currentLocation, "Talbert Hall", 43.000772, -78.7915403);
-        setMarkers(currentLocation, "Alumni Arena", 43.000582, -78.781136);
-        setMarkers(currentLocation, "UB Center for the Arts", 43.001205, -78.783030);
-        setMarkers(currentLocation, "Lockwood Memorial Library", 43.000407, -78.785796);
-        setMarkers(currentLocation, "Student Union", 43.001256, -78.786241);
-        setMarkers(currentLocation, "Clemens Hall", 43.000523, -78.784979);
-        setMarkers(currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
-        setMarkers(currentLocation, "Oscar A. Silverman Library",43.001107,-78.789558);
-        setMarkers(currentLocation, "Commons", 43.001845, -78.785193);
-        setMarkers(currentLocation, "UB Stadium", 42.999159, -78.777510);
-
-
-        mMap.setOnMarkerClickListener((GoogleMap.OnMarkerClickListener) this);
+        mMap.setOnMarkerClickListener(this);
         mMap.setOnInfoWindowClickListener(this);
 
     }
@@ -168,28 +158,28 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item){
-            // Handle navigation view item clicks here.
+        // Handle navigation view item clicks here.
 
-            int id = item.getItemId();
+        int id = item.getItemId();
 
         if (id == R.id.Profile) {
             startActivity(new Intent(MainActivity.this,Profile.class));
 
         }else if (id == R.id.Activity_Log) {
-                startActivity(new Intent(MainActivity.this,activity_log.class));
-            }else if (id == R.id.Setting) {
-            }else if (id == R.id.Intelligence) {
-            }else if (id == R.id.Fitness) {
-            }else if (id == R.id.Society) {
-                 startActivity(new Intent(MainActivity.this, activity_description.class));
-            }
+            startActivity(new Intent(MainActivity.this,activity_log.class));
+        }else if (id == R.id.Setting) {
+        }else if (id == R.id.Intelligence) {
+        }else if (id == R.id.Fitness) {
+        }else if (id == R.id.Society) {
+            startActivity(new Intent(MainActivity.this, activity_description.class));
+        }
 
-            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-            drawer.closeDrawer(GravityCompat.START);
-            return true;
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
 
 
-   }
+    }
     public boolean googleServicesAvailable() {
         // get the instance of the google api availability
         GoogleApiAvailability googleApiAvailable = GoogleApiAvailability.getInstance();
@@ -231,6 +221,8 @@ public class MainActivity extends AppCompatActivity
 
         float distance = currentLocation.distanceTo(destination);  /** get the distance*******************************/
 
+        _distanceTo.put(locality, distance);
+
         if (distance < 100) {
             _marker = mMap.addMarker(new MarkerOptions().title(locality)
                     .position(new LatLng(latitude, longitude))
@@ -248,22 +240,22 @@ public class MainActivity extends AppCompatActivity
         }
         _marker.showInfoWindow();
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
+
     }
 
 
 
-    public void onConnected(@Nullable Bundle bundle) {
+    public void onConnected(Bundle bundle) {
         _myLocationRequest = LocationRequest.create();
         _myLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY); // get the best user location
         _myLocationRequest.setInterval(1000); // how many times i want the location.every 1sec get the location fetched
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(_myGoogleApiClient, _myLocationRequest, (com.google.android.gms.location.LocationListener) this); // this is who is listening the location
-
 
     }
 
@@ -277,20 +269,41 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void setCurrentLocation(Location location){
+        _currentLocation = location;
+    }
+
 
     public void onLocationChanged(Location location) {
+        setCurrentLocation(location);
+
         if (location == null) {
             Toast.makeText(this, "Cannot get current location, check your GPS!", Toast.LENGTH_LONG).show();
 
         } else {
+
+            setMarkers(_currentLocation, "Talbert Hall", 43.000772, -78.7915403);
+            setMarkers(_currentLocation, "Alumni Arena", 43.000582, -78.781136);
+            setMarkers(_currentLocation, "UB Center for the Arts", 43.001205, -78.783030);
+            setMarkers(_currentLocation, "Lockwood Memorial Library", 43.000407, -78.785796);
+            setMarkers(_currentLocation, "Student Union", 43.001256, -78.786241);
+            setMarkers(_currentLocation, "Clemens Hall", 43.000523, -78.784979);
+            setMarkers(_currentLocation, "Charles B. Sears Law Library", 43.000412, -78.787968);
+            setMarkers(_currentLocation, "Oscar A. Silverman Library", 43.001107, -78.789558);
+            setMarkers(_currentLocation, "Commons", 43.001845, -78.785193);
+            setMarkers(_currentLocation, "UB Stadium", 42.999159, -78.777510);
+
+
             LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
             CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 18);
             mMap.animateCamera(cameraUpdate);
+
 
         }
 
     }
 
+/*
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
 
@@ -304,7 +317,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onProviderDisabled(String provider) {
 
-    }
+    }*/
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -362,26 +375,78 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onInfoWindowClick(Marker marker) {
 
+        float distance;
         if (marker.getTitle().equals("Alumni Arena")){
-            Intent intent = new Intent(getApplicationContext(), aaActivity.class);
-            startActivity(intent);
+            distance = _distanceTo.get("Alumni Arena");
+            if(distance >= 500){
+                Toast.makeText(this, "Sorry, You are far away from the destination, cannot do activity", Toast.LENGTH_LONG).show();
+            }
+            else if (distance > 100 && distance < 500){
+                Toast.makeText(this, "Hey, You are almost close to destination, you only can do activity when you are there!", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(), aaActivity.class);
+                startActivity(intent);
+            }
         }
         else if(marker.getTitle().equals("Oscar A. Silverman Library")){
-            Intent intent = new Intent(getApplicationContext(), cpActivity.class);
-            startActivity(intent);
+            distance = _distanceTo.get("Oscar A. Silverman Library");
+            if(distance >= 500){
+                Toast.makeText(this, "Sorry, You are far away from the destination, cannot do activity", Toast.LENGTH_LONG).show();
+            }
+            else if (distance > 100 && distance < 500){
+                Toast.makeText(this, "Hey, You are almost close to destination, you only can do activity when you are there!", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(), cpActivity.class);
+                startActivity(intent);
+            }
         }
         else if(marker.getTitle().equals("Lockwood Memorial Library")) {
-            Intent intent = new Intent(getApplicationContext(), lwActivity.class);
-            startActivity(intent);
+            distance = _distanceTo.get("Lockwood Memorial Library");
+            if(distance >= 500){
+                Toast.makeText(this, "Sorry, You are far away from the destination, cannot do activity", Toast.LENGTH_LONG).show();
+            }
+            else if (distance > 100 && distance < 500){
+                Toast.makeText(this, "Hey, You are almost close to destination, you only can do activity when you are there!", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(), lwActivity.class);
+                startActivity(intent);
+            }
         }
         else if(marker.getTitle().equals("Student Union")) {
-            Intent intent = new Intent(getApplicationContext(), suActivity.class);
-            startActivity(intent);
+            distance = _distanceTo.get("Student Union");
+            if(distance >= 500){
+                Toast.makeText(this, "Sorry, You are far away from the destination, cannot do activity", Toast.LENGTH_LONG).show();
+            }
+            else if (distance > 100 && distance < 500){
+                Toast.makeText(this, "Hey, You are almost close to destination, you only can do activity when you are there!", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(), suActivity.class);
+                startActivity(intent);
+            }
         }
         else if(marker.getTitle().equals("UB Stadium")) {
-            Intent intent = new Intent(getApplicationContext(), stActivity.class);
-            startActivity(intent);
+            distance = _distanceTo.get("UB Stadium");
+            if(distance >= 500){
+                Toast.makeText(this, "Sorry, You are far away from the destination, cannot do activity", Toast.LENGTH_LONG).show();
+            }
+            else if (distance > 100 && distance < 500){
+                Toast.makeText(this, "Hey, You are almost close to destination, you only can do activity when you are there!", Toast.LENGTH_LONG).show();
+
+            }
+            else{
+                Intent intent = new Intent(getApplicationContext(), stActivity.class);
+                startActivity(intent);
+            }
         }
+
 
     }
 

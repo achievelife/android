@@ -9,26 +9,12 @@
     tools:context=".FacebookFragment"
     tools:showIn="@layout/activity_facebook_login">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView2" />
-
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="30dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textView"
         android:layout_centerVertical="true"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
